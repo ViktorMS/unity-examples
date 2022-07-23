@@ -17,12 +17,19 @@ Install Netcode, Lobby, Relay *(Window - Package Manager)* then install ParrelSy
 - Add NetworkObject and ClientNetworkTransform components to the NetworkPlayerArmeture
 - Add a NetworkManager to a new gameobject and add Unity Transport - Drag Networkplayer to the Player slot and Network Prefabs slot
 
+
 - Create a new script inside the NetworkPlayer prefab and call it PlayerStart
 - Enable the disabled components inside NetworkPlayer if IsOwner
+
 
 - Open NetworkThirdPersonController script
 - Make MainCamera public instead of private
 - Edit the NetworkPlayer prefab and drag the MainCamera into the slot in the NetworkThirdPersonController
 - In the Inspector of the NetworkThirdPersonController component set 'Default, Ground' as ground layers, and select a audio clips (footsteps, landing)
 
+
 - Open StarterAssetsInputs script, replace MonoBehaviour with NetworkBehavior - and add  `if(!IsOwner) return;` to all methods
+
+
+- Create a NetworkAnimation, add a public CharacterController and drag the Controller and Animator to the slots
+- Get the speed of the remote player, check if his controller is grounded, and add Animations based on the controller
