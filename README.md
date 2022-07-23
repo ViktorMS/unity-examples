@@ -14,4 +14,13 @@ Install Netcode, Lobby, Relay *(Window - Package Manager)*
 
 - Open the Scripts folder and duplicate ThirdPersonController and rename it NetworkThirdPersonController
 - Add the NetworkThirdPersonController to the NetworkPlayer gameobject and disable all components except Animator and Character Controller (we will enable input for only the owner)
-- ...
+- Add NetworkObject and ClientNetworkTransform components to the NetworkPlayerArmeture
+- Add a NetworkManager to a new gameobject and add Unity Transport - Drag Networkplayer to the Player slot and Network Prefabs slot
+
+- Create a new script inside the NetworkPlayer prefab and call it PlayerStart
+- Enable the disabled components inside NetworkPlayer if IsOwner
+
+- Open NetworkThirdPersonController script
+- Make MainCamera public instead of private
+- Edit the NetworkPlayer prefab and drag the MainCamera into the slot in the NetworkThirdPersonController
+- In the Inspector of the NetworkThirdPersonController component set 'Default, Ground' as ground layers, and select a landing audio clip
