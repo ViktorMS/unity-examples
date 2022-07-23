@@ -24,3 +24,5 @@ Install Netcode, Lobby, Relay *(Window - Package Manager)* then install ParrelSy
 - Make MainCamera public instead of private
 - Edit the NetworkPlayer prefab and drag the MainCamera into the slot in the NetworkThirdPersonController
 - In the Inspector of the NetworkThirdPersonController component set 'Default, Ground' as ground layers, and select a audio clips (footsteps, landing)
+
+- Open StarterAssetsInputs script, replace MonoBehaviour with NetworkBehavior - and add  `if(!IsOwner) return;` to all methods
