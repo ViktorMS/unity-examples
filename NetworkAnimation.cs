@@ -1,9 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
 
-/* Note: animations are called via the controller for both the character and capsule using animator null checks
- */
-
 namespace StarterAssets
 {
 
@@ -61,20 +58,10 @@ namespace StarterAssets
             
         }
 
-        private float getSpeed()
-        {
-            var now = transform.position;
-            var then = lastTransformPosition;
-            var speed = (now - then).magnitude / Time.deltaTime;
-            lastTransformPosition = now;
-            return speed;
-        }
-
         private void Update()
         {
+            if (IsOwner) return;
             GroundedCheck();
-
-            _speed = getSpeed();
 
             if (!Grounded) Jump();
             else Move();
@@ -90,8 +77,19 @@ namespace StarterAssets
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
         }
 
+        private void SetSpeed()
+        {
+            var now = transform.position;
+            var then = lastTransformPosition;
+            var speed = (now - then).magnitude / Time.deltaTime;
+            lastTransformPosition = now;
+            _speed = speed;
+        }
+
         private void Move()
         {
+            SetSpeed();
+
             _animator.SetBool(_animIDFreeFall, false);
             _animator.SetBool(_animIDJump, false);
             // float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
