@@ -1,7 +1,7 @@
 # Convert 3D third person sample to Multiplayer
 ## Unity Netcode, Lobby, Relay
 
-Install Netcode, Lobby, Relay *(Window - Package Manager)*
+Install Netcode, Lobby, Relay *(Window - Package Manager)* then install ParrelSync
 
 <sub>(if Visual Studio does not regognize Netcode, then open Unity - Preferences - External editors - Uncheck everything - Regenerate project files - Check everything - Regenerate project files)</sub>
 
