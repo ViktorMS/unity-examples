@@ -23,4 +23,4 @@ Install Netcode, Lobby, Relay *(Window - Package Manager)*
 - Open NetworkThirdPersonController script
 - Make MainCamera public instead of private
 - Edit the NetworkPlayer prefab and drag the MainCamera into the slot in the NetworkThirdPersonController
-- In the Inspector of the NetworkThirdPersonController component set 'Default, Ground' as ground layers, and select a landing audio clip
+- In the Inspector of the NetworkThirdPersonController component set 'Default, Ground' as ground layers, and select a audio clips (footsteps, landing)
