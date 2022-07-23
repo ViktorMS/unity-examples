@@ -6,15 +6,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerStart : NetworkBehaviour
 {
+    public GameObject main;
+    public GameObject follow;
+
     void Start()
     {
         // Other players will not have input / camera
         if (!IsOwner) return;
 
         // Enable cameras
-        GameObject main = gameObject.transform.Find("MainCamera").gameObject;
-        GameObject follow = gameObject.transform.Find("PlayerFollowCamera").gameObject;
-
         main.GetComponent<Camera>().enabled = true;
         main.GetComponent<AudioListener>().enabled = true;
         main.GetComponent<CinemachineBrain>().enabled = true;
@@ -22,6 +22,6 @@ public class PlayerStart : NetworkBehaviour
 
         // Enable player input after components are enabled
         GetComponent<PlayerInput>().enabled = true;
-        GetComponent<NetworkThirdPersonController>().enabled = true;
+        GetComponent<NetworkController>().enabled = true;
     }
 }
