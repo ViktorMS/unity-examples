@@ -33,3 +33,20 @@ Install Netcode, Lobby, Relay *(Window - Package Manager)* then install ParrelSy
 
 - Create a NetworkAnimation, add a public CharacterController and drag the Controller and Animator to the slots
 - Get the speed of the remote player, check if his controller is grounded, and add Animations based on the controller
+
+# Combat system
+
+```mermaid
+graph TD
+  A(Input) -->|Mouse click| B[Attack Event]
+  B --> C{Animation toggle}
+  C -->|Enable Weapon Collider| E[Weapon collider]
+  C -->|Disable Weapon Collider| D(Done)
+  E -->F{Enemy Hit?}
+  F -->|Yes| G[Hit Event]
+  F --> |No|D(Done)
+  G --> I[Reduce HP]
+  G -->J[Blood Splatter]
+  J --> D(Done)
+  I --> D(Done)
+```
